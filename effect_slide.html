@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="sk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>efekt - logo + text</title>
+    <link rel="stylesheet" href="style_slide.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="js_slide.js"></script>
+
+</head>
+
+<body>
+    <div class="width">
+        <h1>Efektné zobrazenie ikoniek</h1>
+        <div class="click" onclick="slide()">
+            <p>Klikni pre zobrazenie</p>
+            <div class="icons">
+                <img src="fb_logo.png" alt="fb logo">
+                <img src="tw_logo.png" alt="tw logo">
+                <img src="yt_logo.png" alt="yt logo">
+            </div>
+        </div>
+        <div class="wrap_element fb">
+            <!-- obal celého elementu s efektom -->
+            <div class="img">
+                <!-- blok pre obrázok -->
+                <img src="fb_logo.png" alt="fb logo"> <!-- samotný obrázok - logo -->
+            </div>
+            <div class="wrap_txt">Facebook / Moje Meno
+                <!-- toto je obal pre celý text a jeho pozadie s okrajom, obsahuje zhodné vlastnosti a text s "txt" blokom, aby vytvoril správnu celkovú šírku elementu! Samozrejme ten text nie je viditeľný... -->
+                <div class="bgr"></div> <!-- pozadie - vysúva sa prvé s tým efektým okrajom - borderom -->
+                <div class="txt">Facebook / Moje Meno</div>
+                <!-- a samotný text aj s pozadím - vysúva sa mierne neskôr -->
+            </div>
+        </div>
+
+        <div class="wrap_element tw">
+            <div class="img">
+                <img src="tw_logo.png" alt="tv logo">
+            </div>
+            <div class="wrap_txt tw">Twitter / Moje Meno
+                <div class="bgr tw"></div>
+                <div class="txt tw">Twitter / Moje Meno</div>
+            </div>
+        </div>
+
+        <div class="wrap_element yt">
+            <div class="img">
+                <img src="yt_logo.png" alt="tv logo">
+            </div>
+            <div class="wrap_txt yt">YouTube / Moje Meno
+                <div class="bgr yt"></div>
+                <div class="txt yt">YouTube / Moje Meno</div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

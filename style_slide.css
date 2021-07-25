@@ -1,0 +1,153 @@
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  font-size: 16px;
+  font-family: "Times New Roman", Times, serif;
+}
+
+:root {
+  /* definuj farby pre jednotlivé bloky */
+  --color: #0000ff;
+  /* "základná" premenná */
+  --color_fb: #0000ff;
+  --color_tw: #2aaae0;
+  --color_yt: #ab060a;
+}
+
+.width {
+  /* celý obsah je jeden blok */
+  margin: 20px;
+}
+
+.click {
+  /* naštýlovanie "tlačidla" */
+  margin-top: 10px;
+  display: inline-block;
+  background-color: burlywood;
+  padding: 10px;
+  border: 1px solid rgb(231, 131, 0);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.click img {
+  /* mini obrázky ikoniek */
+  width: 1.4rem;
+  border-radius: 50%;
+  margin-right: 10px;
+  margin-top: 10px;
+}
+
+/*
+.click .icons {
+  nateraz neštýlované, ale pomocou flex-u by sa dali dobre upratať tie mini ikonky 
+}*/
+
+.wrap_element {
+  /* obal pre jednotlivé elementy s logom a textom */
+  margin: 20px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  /* flex - aby som dostal obsah loga a textu na stred */
+}
+
+.img {
+  /* obal pre obrázok */
+  position: relative;
+  display: inline-block;
+  left: -50px;
+  /* na začiatku mimo obrazovky a skoro neviditeľný */
+  width: 0px;
+  /* originál je 65px;*/
+  height: 0px;
+  /*65px*/
+  border: 5px solid var(--color);
+  border-radius: 50%;
+  /* guľaté logo to bude */
+  padding: 3px;
+  z-index: 2;
+  /* musí prevyšovať text, takže vyšší z index */
+  background-color: white;
+  overflow: hidden;
+}
+
+.img img {
+  /* obrázok na plnú veľkosť bloku */
+  width: 100%;
+}
+
+.wrap_txt {
+  /* obal pre textovú časť*/
+  display: inline-block;
+  /* nie na celú šírku, ale blok */
+  position: relative;
+  /* relatívna pozícia je nutná, aby fungovali absolútne pozície pre child elementy! */
+  left: -15px;
+  /* mierne doľava, aby sa to poriadne natlačilo na obrázok vľavo*/
+  z-index: -1;
+  /* nech to nepreráža obrázok vľavo */
+  overflow: hidden;
+  /* ak by dačo pretŕčalo tak to skry - text pretŕča, lebo je posunutý doľava odkiaĽ potom prichádza */
+  display: none;
+  /* na začiatku to celé vôbec nezobraz... */
+  letter-spacing: 1px;
+  padding: 10px 1rem 10px 2rem;
+  color: white;
+  /* text je skrytý, je tam len pre určenie šírky */
+}
+
+.bgr {
+  /* pozadie s rámikom */
+  position: absolute;
+  /* absolútna poloha, je (bude) na celý obsah toho svojho obalu potom */
+  left: 0px;
+  top: 0px;
+  /* poloha vľavo hore, takže poloha presne ako obal */
+  width: 0;
+  /* "vysúva" sa potom ,takže na začiatku 0 */
+  height: 100%;
+  /* 100% výška obalu, inak by nemal skoro žiadnu, nemá obsah... */
+  z-index: 1;
+  /* vyšší index ako obal, ale menší ako obrázok */
+  border: 2px solid var(--color);
+  border-radius: 0 25px 25px 0;
+  /* vpravo oba rohy poriadne zagulatené - je to viac ako je polovica výšky! toto by možno išlo aj lepśie zapísať... ale funguje to...*/
+}
+
+.txt {
+  /* samotný text */
+  position: absolute;
+  /* absolútna poloha, je (bude) na celý obsah toho svojho obalu potom */
+  left: -400px;
+  /* on príde z ľava, takže začína vľavo*/
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  /* na celý obsah obalu */
+  background-color: var(--color);
+  /* vlastnosti presne ako jeho obal... */
+  border-radius: 0 25px 25px 0;
+  color: white;
+  padding: 10px 1rem 10px 2rem;
+  z-index: 1;
+  letter-spacing: 1px;
+}
+
+/* každá skupina potrebuje inú farbu... takže spoločná premenná color bude mať pre každú skupinu inú hodnotu */
+.fb {
+  --color: var(--color_fb);
+}
+
+.tw {
+  --color: var(--color_tw);
+}
+
+.yt {
+  --color: var(--color_yt);
+}
