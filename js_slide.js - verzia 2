@@ -1,0 +1,46 @@
+function slide() {
+  /* načítaj si elementy */
+  img = $(".img");
+  bgr = $(".bgr");
+  txt = $(".txt");
+  wrap = $(".wrap_txt");
+  /* vytvor pseudoelement pre časovanie */
+  timer_div = $("<div id='timer'></div>");
+  $("body").append(timer_div);
+  timer = $("#timer");
+  /* timer - pseudo element ktorý je na stránke iba jeden a slúži na "časovanie" */
+  /** POZOR - ak som použil "const", "var" alebo "let" tak volaná funkcia clear už s tými premennými nevedela pracovať, boli lokálne!!!  **/
+
+  /* daj naspäť východzí stav...*/
+  img.css({ left: "-50px", width: "0px", height: "0px", opacity: "1" });
+  wrap.css({ display: "none", opacity: "1", left: "-15px" });
+  bgr.css("width", "0px");
+  txt.css({ left: "-400px" });
+  /* a spusti animácie */
+  img.animate({ left: "0px" }, 1000);
+  timer.animate({ left: "0px" }, 1000); /* časovač tak isto 1000*/
+  img.animate({ width: "75px", height: "75px" }, 500);
+  timer.animate({ left: "0px" }, 500); /* časovač tak isto 500 */
+  img.animate({ width: "65px", height: "65px" }, 400);
+  timer.animate({ left: "0px" }, 400, () => {
+    /* timer-om sa v podstate nevykoná nič (viditeľné na obrazovke), element je tu iba raz, tak sa volá tá nasledovná funkcia iba raz */
+    wrap.css("display", "block");
+    bgr.animate({ width: "100%" }, 900);
+    txt.animate({ left: "0px" }, 1500);
+    timer.animate({ left: "0px" }, 4000, () => {
+      /* podobne tu pomocou timer - 4sekundy sa "čaká" (v podstate ako "delay") a elementy sú staticky zobrazené na obrazovke. až potom začne tretia časť - mazanie obsahu */
+      img.animate({ left: "-400px", opacity: "0" }, 500);
+      wrap.animate({ left: "-400px", opacity: "0" }, 500);
+    });
+  });
+}
+
+/* funckia clear je zrušená, kód z nej je v hlavnej funkcií... */
+/*function clear() {
+        /*let img = $(".img");
+        let bgr = $(".bgr");
+        let txt = $(".txt");
+        let wrap = $(".wrap_txt");
+        img.animate({ left: '-400px', opacity: '0'}, 500);
+        wrap.animate({ left: "-400px", opacity: "0" }, 500);
+    }*/
